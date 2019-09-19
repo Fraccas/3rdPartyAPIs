@@ -3,7 +3,7 @@ import * as stripeLoader from 'stripe';
 
 const router = express.Router();
 
-const stripe = new stripeLoader('sk_test_265xK1Ze74Uus7jeziATJZHZ004q6feEsG');
+const stripe = new stripeLoader('*********');
 
 const charge = (token: string, amt: number) => {
     return stripe.charges.create({
