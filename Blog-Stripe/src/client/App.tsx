@@ -8,6 +8,10 @@ import Login from './components/admin/Login';
 import Register from './components/admin/Register';
 import { User } from './utils/api'; 
 
+// Stripe
+import { StripeProvider, Elements } from 'react-stripe-elements';
+import Form from './components/public/Form';
+
 class App extends React.Component {
     render() {
         return (
@@ -32,7 +36,16 @@ class App extends React.Component {
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/register' component={Register} />
                 </Switch>
-            </div>        
+            </div>      
+            <div className="donate footer text-center p-3 my-5">
+                <hr></hr>
+                <h2 className='bg-primary text-light p-3 m-auto rounded border border-dark shadow mt-3'>Would you like to donate?</h2>
+                <StripeProvider apiKey="pk_test_sCUedu8cZGsq3Qfcc8HtJQ13007Jpqsuew">
+                    <Elements>
+                        <Form />
+                    </Elements>
+                </StripeProvider>
+            </div>  
             </Router>   
         )
     }
