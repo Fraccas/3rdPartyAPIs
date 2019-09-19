@@ -1,37 +1,24 @@
 import * as React from 'react';
+import { StripeProvider, Elements } from 'react-stripe-elements';
+import Form from './Form';
 
 class App extends React.Component<IAppProps, IAppState> {
 
-    constructor(props: IAppProps) {
-        super(props);
-        this.state = {
-            name: null
-        };
-    }
-
-    async componentWillMount() {
-        try {
-            let r = await fetch('/api/hello');
-            let name = await r.json();
-            this.setState({ name });
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
     render() {
         return (
-            <main className="container my-5">
-                <h1 className="text-primary text-center">Hello {this.state.name}!</h1>
-            </main>
+            <>
+            <StripeProvider apiKey="pk_test_sCUedu8cZGsq3Qfcc8HtJQ13007Jpqsuew">
+                <Elements>
+                    <Form />
+                </Elements>
+            </StripeProvider>
+            </>
         )
     }
 }
 
 export interface IAppProps { }
 
-export interface IAppState {
-    name: string;
-}
+export interface IAppState { }
 
 export default App;
