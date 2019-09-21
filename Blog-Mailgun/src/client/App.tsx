@@ -6,6 +6,7 @@ import ViewBlog from './components/public/ViewBlog';
 import EditBlog from './components/admin/EditBlog';
 import Login from './components/admin/Login';
 import Register from './components/admin/Register';
+import Email from './components/public/Email'
 import { User } from './utils/api'; 
 
 // Stripe
@@ -22,6 +23,7 @@ class App extends React.Component {
                     <li><Link to={'/'} className="nav-link"> Blog </Link></li>             
                 </ul>
                 <ul className="navbar-nav navbar-right">
+                    <li><Link to={'/email'} className="nav-link"> Contact </Link></li> 
                     <li><Link to={'/'} className="nav-link"> Blogs </Link></li>
                     {this.showAdmin()}   
                     {this.showLog()}                                 
@@ -35,6 +37,7 @@ class App extends React.Component {
                     <Route exact path='/blog/update/:id' component={EditBlog} />
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/register' component={Register} />
+                    <Route exact path='/email' component={Email} />
                 </Switch>
             </div>      
             <div className="donate footer text-center p-3 my-5">

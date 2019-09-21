@@ -4,6 +4,7 @@ import blogsRouter from './blogs';
 import authorsRouter from './authors';
 import tokensRouter from './tokens';
 import donateRouter from './donate';
+import mailgunRouter from './mailgun';
 import passport = require('passport');
 
 const router = express.Router();
@@ -19,5 +20,6 @@ router.use('/blogs', blogsRouter);
 router.use('/authors', authorsRouter);
 router.use('/tokens', tokensRouter);
 router.use('/donate', donateRouter);
+router.use('/mailgun', mailgunRouter);
 
 export default router;

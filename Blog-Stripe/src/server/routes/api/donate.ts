@@ -17,7 +17,6 @@ const charge = (token: string, amt: number) => {
 router.post('/', async (req, res, next) => {
     try {
         let data = await charge(req.body.token.id, req.body.amount);
-        console.log(data);
         res.send("Charged!");
     } catch (e) {
         console.log(e);
